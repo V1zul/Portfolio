@@ -581,6 +581,167 @@
                 gap: 1rem;
             }
         }
+
+        /* Print/PDF Styles */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            body {
+                background: #0f172a;
+                color: #e2e8f0;
+                font-size: 12pt;
+                line-height: 1.5;
+            }
+
+            /* Remove animations and transitions for print */
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            /* Hide navigation */
+            nav {
+                display: none;
+            }
+
+            /* Hide footer */
+            footer {
+                display: none;
+            }
+
+            /* Optimize hero section */
+            .hero {
+                page-break-inside: avoid;
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                flex-direction: row;
+                gap: 2rem;
+            }
+
+            .hero-image img {
+                width: 150px;
+                height: 150px;
+                box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            /* Container */
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            /* Sections */
+            section {
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+                page-break-after: avoid;
+                border-bottom: 2px solid rgba(99, 102, 241, 0.5);
+            }
+
+            /* About section */
+            .about {
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                page-break-inside: avoid;
+            }
+
+            /* Skills grid */
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .skill-category {
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Projects */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .project-card {
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                page-break-inside: avoid;
+            }
+
+            /* Contact section */
+            .contact {
+                background: rgba(30, 41, 59, 0.8);
+                border: 1px solid rgba(99, 102, 241, 0.3);
+                page-break-inside: avoid;
+            }
+
+            .contact::before {
+                display: none;
+            }
+
+            .contact-links a {
+                border: 2px solid rgba(99, 102, 241, 0.5);
+                background: rgba(99, 102, 241, 0.1);
+            }
+
+            /* Remove shadows and glows for print */
+            .hero-image::before,
+            .skill-category::before,
+            .project-card::before {
+                display: none;
+            }
+
+            /* Remove body background animation */
+            body::before {
+                display: none;
+            }
+
+            /* Ensure text is readable */
+            h1, h2, h3 {
+                color: #a5b4fc !important;
+            }
+
+            p, li {
+                color: #cbd5e1 !important;
+            }
+
+            /* Page breaks */
+            .skill-category,
+            .project-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Optimize for A4 */
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+        }
     </style>
 </head>
 <body>
